@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+:root {
+  --roboto: 'Roboto', sans-serif;
+  --outfit: 'Outfit', sans-serif;
+  --opacity: rgba(217, 217, 217, 0.4);
+  --radius-15: 15px;
+  --radius-10: 10px;
+  --blue-background: rgba(9, 9, 121, 0.3);
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  background: linear-gradient(144.48deg, #4653A2 27.23%, rgba(252, 193, 58, 0.9) 90.76%);
+  min-height: 100vh;
+
+  font-family: var(--outfit);
+}
+

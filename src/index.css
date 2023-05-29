@@ -23,13 +23,14 @@
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 #root {
-  background: linear-gradient(144.48deg, #4653A2 27.23%, rgba(252, 193, 58, 0.9) 90.76%);
+  background: linear-gradient(180deg, #35425B 25.52%, #1E2023 100%);
   min-height: 100vh;
 
   font-family: var(--outfit);
 }
+
 

@@ -5,7 +5,19 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+
+    extend: {
+      backgroundColor: {
+        'custom-blue': 'rgba(9, 9, 121, 0.3)',
+        'custom-bg-icon': 'rgba(217, 217, 217, 0.4)',
+      },
+      backgroundImage: {
+        'main-gradient': 'linear-gradient(179.94deg, rgba(8, 8, 91, 0.28) -1.39%, rgba(62, 255, 197, 0) 101.2%)',
+      },
+      boxShadow: {
+        'custom-shadow': '0px 2px 5px rgba(255, 255, 255, 0.3)',
+      },
+    },
   },
   plugins: [],
 }

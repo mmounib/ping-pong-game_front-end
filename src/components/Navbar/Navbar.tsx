@@ -1,4 +1,4 @@
-import React from 'react'
+ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { VscAccount as AccountIcon, VscBell as NotifIcon, VscHome as HomeIcons, VscEllipsis as ListIcon, VscKebabVertical as DotsIcon,   } from "react-icons/vsc";
@@ -28,28 +28,82 @@ const links: any = [
   },
 
 ]
+
+const Styles: string = "after:absolute after:content-[''] after:bg-white after:h-[3px] after:w-0 after:left-0 after:-bottom-[5px] after:rounded-xl after:duration-500 hover:after:w-full";
+
+
 const Navbar = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   return (
     <>
-      <div className=' fixed bg-main-gradient p-3 mb-auto h-[calc(60vh_-_2rem)] shadow-custom-shadow rotate-0 rounded-r-2xl top-1/2 -translate-y-1/2 max-sm:hidden'>
+      <div className=' py-6 fixed bg-main-gradient p-4 mb-auto shadow-custom-shadow rotate-0 rounded-r-2xl top-1/2 -translate-y-1/2 max-sm:hidden max-md:p-2'>
 
-          <span className='text-white mb-2 text-lg'>Navbar</span>
+          <span className='text-white mb-2 text-lg mx-auto'>Navbar</span>
           <span className=' flex bg-white h-[1px] mt-6'></span>
 
           <div>
-            <ul className=' mt-12 flex flex-col items-center'>
+            {!isHovering ? (
+              <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=' mt-12 flex flex-col items-center cursor-pointer duration-500 ease-in-out max-md:mt-8'>
+              
+                {links.map((link: any) => (
+                  <li className='mb-14 max-md:mb-7' >
+
+                    <NavLink
+                      to={`/${link.name}`}
+                      className={` nav relative pb-3 text-white flex flex-row items-center`}>
+                        {link.icon}
+                    </NavLink>
+
+                  </li>
+                ))}
+
+              </ul>
+            ) :
+            <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className='mt-12 flex flex-col items-center hover:pr-[15px] transition-all duration-1000 cursor-pointer max-md:mt-8'>
               {links.map((link: any) => (
-                <li className='mb-14'>
-                  <NavLink to={`/${link.name}`} className=' pb-3 hover:bg-custom-bg-icon hover:p-[7px] hover:rounded-[30%] hover:duration-500 text-white flex flex-row items-center'>{link.icon}</NavLink>
+                <li className='mb-14 max-md:mb-7'>
+                  <NavLink
+                    to={`/${link.name}`}
+                    className='  nav pb-3 text-white flex flex-row items-center'>
+                      {link.icon}
+                      <span className='pl-4'>{link.name}</span>
+                  </NavLink>
                 </li>
               ))}
             </ul>
-          </div>
+          }
 
-          <div>
-            <span className=' flex bg-white h-[1px] mt-12'></span>
-            <ExitIcon size={35} className='text-white flex mt-8 mx-auto'/>
           </div>
+          
+          {!isHovering ? (
+            <div>
+
+              <span className=' flex bg-white h-[1px] mt-12'></span>
+              <NavLink to='/logout' className='text-white flex mt-8 items-center justify-center hover:items-start'>
+                <ExitIcon size={35} />
+              </NavLink>
+              
+            </div>
+          ) : 
+            <div>
+
+              <span className=' flex bg-white h-[1px] mt-12'></span>
+              <NavLink to='/logout' className=' text-white flex mt-8 items-center justify-center hover:items-start'>
+                <ExitIcon size={35} />
+                <span className='pl-4'>Logout</span>
+              </NavLink>
+                
+            </div>
+          }
       </div>
     </>
   )

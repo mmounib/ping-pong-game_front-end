@@ -10,9 +10,11 @@ export default {
       backgroundColor: {
         'custom-blue': 'rgba(9, 9, 121, 0.3)',
         'custom-bg-icon': 'rgba(217, 217, 217, 0.4)',
+        'back-bg': 'rgba(217, 217, 217, 0.1)',
       },
       backgroundImage: {
         'main-gradient': 'linear-gradient(179.94deg, rgba(8, 8, 91, 0.28) -1.39%, rgba(62, 255, 197, 0) 101.2%)',
+        'image-bg': "url('src/assets/4312098.jpg')",
       },
       boxShadow: {
         'custom-shadow': '0px 2px 5px rgba(255, 255, 255, 0.3)',

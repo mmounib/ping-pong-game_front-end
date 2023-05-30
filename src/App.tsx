@@ -5,13 +5,31 @@
 // import { MdSource as MessageIcon, MdVideoLibrary as VideoIcon, MdMarkunread as MdMessageIcon, MdKeyboardDoubleArrowRight as rightArrowIcon, MdSportsEsports as GameIcon, MdOutlineToc as AdditionalSettingIcon } from "react-icons/md";
 
 import Navbar from './components/Navbar/Navbar'
+import HomePage from './components/HomePage/HomePage'
 
 import './App.css'
+import {
+  RouterProvider,
+  Route,
+  Routes,
+  NavLink,
+  BrowserRouter
+} from "react-router-dom";
 
 const App = () => {
   return (
-    <div className=' flex'>
-      <Navbar />
+    <div className=' h-[100vh] relative'>
+      <div className=' w-full flex absolute top-1/2 -translate-y-1/2'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={(<HomePage />)}/>
+          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/Home' element={(<HomePage />)}/>
+        </Routes>
+      </div>
     </div>
   )
 }

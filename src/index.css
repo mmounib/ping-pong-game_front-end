@@ -10,6 +10,7 @@
   --radius-10: 10px;
   --blue-background: rgba(9, 9, 121, 0.3);
   --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --all-bg: rgba(217, 217, 217, 0.1);
 }
 
 @tailwind base;
@@ -46,4 +47,41 @@ body {
   @apply w-full
 }
 
+button {
+  border: 0;
+  padding: 12px 40px;
+  border-radius: var(--radius-10);
+}
 
+button:hover {
+  background-color: rgba(113, 6, 6, 0.9);
+  transition: all .5s ease-in-out;
+  /* transform: scale(1.0777); */
+  padding: 10px 45px;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: clamp(5vmin, 10vmin, 5vmin);
+}
+
+
+/* .home {
+  background: lightblue;
+  margin: 0 auto;
+  border-radius: 8px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  width: 100%;
+  height: 200px;
+}
+.home-img {
+  object-fit: cover;
+  height: inherit;
+  width: 100%;
+} */

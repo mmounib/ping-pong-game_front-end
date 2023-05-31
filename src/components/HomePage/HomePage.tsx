@@ -2,7 +2,7 @@ import React from 'react'
 import img from '../../assets/4312098.jpg'
 import { Live, Results } from './Container'
 
-import { MdKeyboardDoubleArrowRight as rightArrowIcon, MdKeyboardArrowRight as SingleArrow } from 'react-icons/md'
+import { MdKeyboardDoubleArrowRight as RightArrowIcon, MdKeyboardArrowRight as SingleArrow  } from 'react-icons/md'
 import { VscAccount as AccountIcon } from 'react-icons/vsc'
 
 const HomePage = () => {
@@ -53,7 +53,7 @@ const HomePage = () => {
             <SingleArrow size={25}/>
           </div>
         </div>
-        <div className=' back rounded-[10px] flex-1 bg-custom-bg-icon shadow-md flex flex-col gap-8'>
+        <div className=' back rounded-[10px] flex-1 bg-custom-bg-icon shadow-md flex flex-col gap-10'>
           <h1 className="text-2xl p-2">Latest Results</h1>
           <div className="flex gap-4 flex-col justify-center">
             <div className="flex mx-auto">
@@ -78,6 +78,7 @@ const HomePage = () => {
               <AccountIcon size={50}/>
             </div>
           </div>
+          <RightArrowIcon size={35} className='absolute left-[100%]'/>
         </div>
       </div>
     </div>

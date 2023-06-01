@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <>
-        <div className=' mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadow rotate-0 rounded-r-2xl max-sm:hidden max-md:p-2'>
+        <div className=' mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadow rotate-0 rounded-r-2xl max-sm:hidden max-md:p-2 max-md:hidden'>
 
             <span className='text-white mb-2 text-lg mx-auto'>Navbar</span>
             <span className=' flex bg-white h-[1px] mt-6'></span>

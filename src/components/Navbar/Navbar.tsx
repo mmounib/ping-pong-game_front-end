@@ -45,14 +45,12 @@ const Navbar = () => {
 
   return (
     <>
-        <div className=' mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadow rotate-0 rounded-r-2xl max-sm:hidden max-md:p-2 max-md:hidden'>
-
-            <span className='text-white mb-2 text-lg mx-auto'>Navbar</span>
-            <span className=' flex bg-white h-[1px] mt-6'></span>
-
-            <div>
-              {!isHovering ? (
-                <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=' mt-12 flex flex-col items-center cursor-pointer duration-500 ease-in-out max-md:mt-8'>
+      <div className=' nav-animate mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadowrotate-0 rounded-r-2xl max-sm:hidden max-md:p-2 max-md:hidden hover:transition-all'>
+          <span className='text-white mb-2 text-lg mx-auto'>Navbar</span>
+          <span className=' flex bg-white h-[1px] mt-6'></span>
+          <div className='animate'>
+            {!isHovering ? (
+              <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className='mt-12 flex flex-col items-center cursor-pointer max-md:mt-8 '>
                 
                   {links.map((link: any) => (
                     <li className='mb-14 max-md:mb-7' >
@@ -66,25 +64,24 @@ const Navbar = () => {
                     </li>
                   ))}
 
-                </ul>
-              ) :
-              <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className='mt-12 flex flex-col items-center hover:pr-[15px] transition-all duration-1000 cursor-pointer max-md:mt-8'>
+              </ul>
+            ) :
+            <ul onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} className='mt-12 flex animate flex-col items-center cursor-pointer max-md:mt-8'>
                 {links.map((link: any) => (
-                  <li className='mb-14 max-md:mb-7'>
+                  <li className='mb-14 max-md:mb-7 hover:transition-all'>
                     <NavLink
                       to={`/${link.name}`}
-                      className='  nav pb-3 text-white flex flex-row items-center'>
+                      className=' nav pb-3 text-white flex flex-row items-center '>
                         {link.icon}
                         <span className='pl-4'>{link.name}</span>
                     </NavLink>
                   </li>
                 ))}
-              </ul>
-            }
-
-            </div>
-            
-            {!isHovering ? (
+            </ul>
+          }
+          </div>
+          
+          {!isHovering ? (
               <div>
 
                 <span className=' flex bg-white h-[1px] mt-12'></span>
@@ -93,8 +90,8 @@ const Navbar = () => {
                 </NavLink>
                 
               </div>
-            ) : 
-              <div>
+          ) : 
+            <div>
 
                 <span className=' flex bg-white h-[1px] mt-12'></span>
                 <NavLink to='/logout' className=' text-white flex mt-8 items-center justify-center hover:items-start'>
@@ -102,12 +99,9 @@ const Navbar = () => {
                   <span className='pl-4'>Logout</span>
                 </NavLink>
                   
-              </div>
-            }
-        </div>
-        {/* <div className=' bg-back-bg rounded-md w-[calc(80vw_-_2rem)] max-w-[1200px] h-[70vh]'>
-          HomePAge
-        </div> */}
+            </div>
+          }
+      </div>
     </>
   )
 }

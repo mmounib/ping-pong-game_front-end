@@ -37,10 +37,13 @@ body {
 }
 
 
+.nav-animate {
+  transform: translateX(-100%);
+  animation: slide 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
 
 .nav {
- 
-    @apply relative tracking-[1px]
+    @apply relative tracking-[1px];    
 }
 .nav::after {
   @apply content-[''] absolute bg-white h-[3px] w-0 left-0 -bottom-[5px] rounded-xl duration-500
@@ -53,6 +56,7 @@ button {
   border: 0;
   padding: 12px 40px;
   border-radius: var(--radius-10);
+
 }
 
 h1 {
@@ -64,6 +68,20 @@ h1 {
   box-shadow: 10px 10px 23px 10px rgba(171,171,171,0.1);
   -webkit-box-shadow: 10px 10px 23px 10px rgba(171,171,171,0.1);
   -moz-box-shadow: 10px 10px 23px 20px rgba(171,171,171,0.1);
+
+  transform: translateY(-100%);
+  animation: slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide {
+  to {
+    transform: translateX(0);
+  }
 }
 
 .back {
@@ -75,6 +93,12 @@ h1 {
   border: 1px solid rgba(10, 73, 159, 0.13);
   /* padding-bottom: 7rem; */
 }
+
+.animate:hover {
+  padding-right: 15px;
+  transition: all .7s ease;
+}
+
 .back:hover {
   /* background: linear-gradient(179.94deg, rgba(8, 8, 91, 0.2) -1.39%, rgba(62, 255, 197, 0) 101.2%); */
   background: rgba(98, 252, 206, 0.1);

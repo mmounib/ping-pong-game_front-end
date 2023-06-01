@@ -4,8 +4,11 @@
 
 // import { MdSource as MessageIcon, MdVideoLibrary as VideoIcon, MdMarkunread as MdMessageIcon, MdKeyboardDoubleArrowRight as rightArrowIcon, MdSportsEsports as GameIcon, MdOutlineToc as AdditionalSettingIcon } from "react-icons/md";
 
-import Navbar from './components/Navbar/Navbar'
-import HomePage from './components/HomePage/HomePage'
+// import Navbar from './components/Navbar/Navbar'
+// import HomePage from './components/HomePage/HomePage'
+
+import { Navbar, HomePage, Profile } from './components/index'
+
 
 import './App.css'
 import {
@@ -24,7 +27,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
-          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/Profile' element={(<Profile />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>

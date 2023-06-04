@@ -48,8 +48,8 @@ const Profile = () => {
 
       </div>
 
-      <div className="flex">
-        <div className="flex flex-col">
+      <div className="flex w-[70%]">
+        <div className="flex flex-col w-full">
           <ResultsMatch />
           <Achievements />
         </div>
@@ -57,7 +57,7 @@ const Profile = () => {
           <Friends />
         </div>
       </div>
-      
+
     </div>
   )
 }

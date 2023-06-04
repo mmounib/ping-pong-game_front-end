@@ -43,7 +43,7 @@ export const Live = () => {
 
 export const Results = () => {
     return (
-        <div className=' mt-4 relative back min-h-[350px] max-md:min-h-[270px] rounded-[10px] flex-1 shadow-md flex flex-col justify-between'>
+        <div className=' max-sm:mt-4 relative back min-h-[350px] max-md:min-h-[270px] rounded-[10px] flex-1 shadow-md flex flex-col justify-between overflow-x-auto'>
           <h1 className="text-2xl p-2">Latest Results</h1>
           <div className="flex gap-4 flex-col justify-center">
             <div className="flex mx-auto">

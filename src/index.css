@@ -120,6 +120,14 @@ h1 {
   margin: 6rem 2.5rem 0;
 }
 
+.top-1 {
+  background: rgba(98, 252, 206, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  min-height: calc(250px - 2rem);
+}
+
 .align {
   @apply flex flex-col items-center;
 }

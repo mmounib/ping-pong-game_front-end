@@ -36,6 +36,9 @@ body {
   font-family: var(--outfit);
 }
 
+h2 {
+  font-family: var(--outfit);
+}
 
 .nav-animate {
   transform: translateX(-100%);

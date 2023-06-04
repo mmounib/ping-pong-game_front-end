@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=' nav-animate mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadowrotate-0 rounded-r-2xl max-sm:hidden max-md:p-2 max-md:hidden hover:transition-all'>
+      <div className=' nav-animate mt-auto py-6 bg-main-gradient p-4 mb-auto shadow-custom-shadowrotate-0 rounded-r-2xl max-md:p-2 max-md:hidden hover:transition-all'>
           <span className='text-white mb-2 text-lg mx-auto'>Navbar</span>
           <span className=' flex bg-white h-[1px] mt-6'></span>
           <div className='animate'>

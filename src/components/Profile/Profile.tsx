@@ -5,20 +5,21 @@ import Achievements from './Achievements'
 import Friends from './Friends'
 import ResultsMatch from './ResultsMatch'
 
+// import img from '../../assets/backround.jpg'
+
 
 const Profile = () => {
   return (
-    <div className=" home flex flex-col bg-secondary-gradient drop-shadow-sm rounded-[10px] w-[80%] mx-auto max-w-[1400px] h-[75vh] max-sm:w-[calc(100vw_-_1rem)] max-md:w-[95%] max-md:h-[85vh]">
-      
-      <div className="flex text-white mt-14 mx-8 justify-between max-md:flex-col max-md:mt-8">
+    <div className=" home flex flex-col bg-profile-bg bg-cover bg-center drop-shadow-sm rounded-[10px] w-[80%] mx-auto max-w-[1400px] h-[70vh] max-sm:w-[100vw] max-md:w-[95%] max-md:h-[90vh] max-sm:h-[1200px]">
+      <div className="flex text-white mt-14 mx-8 justify-between max-md:flex-col max-md:mt-8 max-sm:mt-14">
 
         <div className="flex flex-col">
           <div className="flex items-center">
-            <AccountIcon size={140} className=''/>
+            <AccountIcon size={140} className='max-sm:w-[100px]'/>
             <div className=" ml-8 flex flex-col text-gray-400 text-sm">
-              <span>Welcome</span>
-              <h1 className='text-4xl m-1 pl-4 text-white'>LoginName</h1>
-              <p>Hey, Dude! how are you</p>
+              <span className='max-sm:hidden'>Welcome</span>
+              <h1 className='text-4xl m-1 pl-4 text-white max-sm:text-2xl max-sm:pl-2'>LoginName</h1>
+              <p className='max-sm:hidden'>Hey, Dude! how are you</p>
             </div>
           </div>
           <div className="block mt-2">
@@ -48,12 +49,12 @@ const Profile = () => {
 
       </div>
 
-      <div className="flex w-[70%]">
-        <div className="flex flex-col w-full">
+      <div className="flex my-auto gap-4 flex-row-reverse mx-4">
+        <div className="flex flex-col w-[70%] flex-1">
           <ResultsMatch />
           <Achievements />
         </div>
-        <div className="flex">
+        <div className="flex flex-2">
           <Friends />
         </div>
       </div>

@@ -9,7 +9,7 @@ const MatchDiv = () => {
 
 const ResultsMatch = () => {
   return (
-    <div className="flex top-1 mt-[10vmin] ml-2 text-gray-400 ">
+    <div className="flex top_1 min-h-[200px] ml-2 text-gray-400 ">
       <h1 className="text-2xl p-2">Match Results</h1>
       <div className="flex">
         <MatchDiv />

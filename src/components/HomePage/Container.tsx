@@ -5,7 +5,7 @@ import { VscAccount as AccountIcon } from 'react-icons/vsc'
 
 export const Live = () => {
   return (
-    <div className=' min-h-[350px] max-md:min-h-[270px] back rounded-[10px] flex-1 mr-16 flex flex-col justify-between shadow-md max-md:mr-0 '>
+    <div className=' min-h-[350px] max-md:min-h-[270px] back rounded-[10px] flex-1 mr-16 flex flex-col justify-between shadow-md max-md:mr-0'>
           <h1 className="text-2xl p-2">Live Games</h1>
           <div className=" flex gap-4 flex-col justify-center">
             <div className="flex mx-auto">
@@ -43,7 +43,7 @@ export const Live = () => {
 
 export const Results = () => {
     return (
-        <div className=' max-sm:mt-4 relative back min-h-[350px] max-md:min-h-[270px] rounded-[10px] flex-1 shadow-md flex flex-col justify-between overflow-x-auto'>
+        <div className=' max-md:mt-4 relative back min-h-[350px] max-md:min-h-[270px] rounded-[10px] flex-1 shadow-md flex flex-col justify-between overflow-x-auto'>
           <h1 className="text-2xl p-2">Latest Results</h1>
           <div className="flex gap-4 flex-col justify-center">
             <div className="flex mx-auto">
@@ -84,7 +84,7 @@ export const Results = () => {
             <h1 className='text-white text-2xl mx-4 my-2'>Top Players</h1>
             <RightArrowIcon size={35} className=' text-white cursor-pointer hover:animate-pulse'/>
           </div>
-          <div className="flex text-white justify-around mt-4 items-center flex-wrap">
+          <div className="flex text-white justify-around mt-4 items-center overflow-x-auto">
             <div className="align">
               <AccountIcon size={80} className='max-sm:w-[75%]'/>
               <span className="text-center mt-3 max-md:mt-1 text-md">User1</span>

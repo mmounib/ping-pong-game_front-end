@@ -15,6 +15,7 @@ export default {
       backgroundImage: {
         'main-gradient': 'linear-gradient(179.94deg, rgba(8, 8, 91, 0.28) -1.39%, rgba(62, 255, 197, 0) 101.2%)',
         'image-bg': "url('src/assets/4312098.jpg')",
+        'profile-bg': "url('src/assets/background-2.jpg')",
         'secondary-gradient': 'linear-gradient(179.94deg, rgba(62, 255, 197, 0.1) -1.39%, rgba(8, 8, 91, 0.28) 101.2%)',
       },
       boxShadow: {

@@ -68,12 +68,13 @@ h1 {
 }
 
 .home {
-  box-shadow: 10px 10px 23px 10px rgba(171,171,171,0.1);
-  -webkit-box-shadow: 10px 10px 23px 10px rgba(171,171,171,0.1);
-  -moz-box-shadow: 10px 10px 23px 20px rgba(171,171,171,0.1);
+  box-shadow: 3px 3px 20px 1px rgba(171,171,171,0.1);
+  -webkit-box-shadow: 3px 3px 20px 1px rgba(171,171,171,0.1);
+  -moz-box-shadow: 3px 3px 20px 1px rgba(171,171,171,0.1);
 
   transform: translateY(-100%);
   animation: slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
 }
 
 @keyframes slideDown {
@@ -120,8 +121,8 @@ h1 {
   margin: 6rem 2.5rem 0;
 }
 
-.top-1 {
-  background: rgba(98, 252, 206, 0.1);
+.top_1 {
+  background: rgba(10, 73, 159, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);

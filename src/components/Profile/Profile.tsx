@@ -1,4 +1,5 @@
 import { VscAccount as AccountIcon } from 'react-icons/vsc'
+import { MdEdit } from 'react-icons/md'
 
 import { motion } from 'framer-motion'
 import Achievements from './Achievements'

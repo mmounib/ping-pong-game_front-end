@@ -52,11 +52,12 @@ const Navbar = () => {
             {!isHovering ? (
               <ul onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className='mt-12 flex flex-col items-center cursor-pointer max-md:mt-8 '>
                 
-                  {links.map((link: any) => (
-                    <li className='mb-14 max-md:mb-7' >
+                  {links.map((link: any, index: number) => (
+                    <li className='mb-14 max-md:mb-7' key={index} >
 
                       <NavLink
                         to={`/${link.name}`}
+                        
                         className={` nav relative pb-3 text-white flex flex-row items-center`}>
                           {link.icon}
                       </NavLink>
@@ -67,10 +68,11 @@ const Navbar = () => {
               </ul>
             ) :
             <ul onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} className='mt-12 flex animate flex-col items-center cursor-pointer max-md:mt-8'>
-                {links.map((link: any) => (
-                  <li className='mb-14 max-md:mb-7 hover:transition-all'>
+                {links.map((link: any, index: number) => (
+                  <li className='mb-14 max-md:mb-7 hover:transition-all' key={index} >
                     <NavLink
                       to={`/${link.name}`}
+                      
                       className=' nav pb-3 text-white flex flex-row items-center '>
                         {link.icon}
                         <span className='pl-4'>{link.name}</span>

@@ -1,5 +1,5 @@
 import { VscAccount as AccountIcon } from 'react-icons/vsc'
-import { MdEdit } from 'react-icons/md'
+
 import { motion } from 'framer-motion'
 import Achievements from './Achievements'
 import Friends from './Friends'
@@ -10,7 +10,7 @@ import ResultsMatch from './ResultsMatch'
 
 const Profile = () => {
   return (
-    <div className=" home flex flex-col bg-profile-bg bg-cover bg-center drop-shadow-sm rounded-[10px] w-[80%] mx-auto max-w-[1400px] h-[70vh] max-sm:w-[100vw] max-md:w-[95%] max-md:h-[90vh] max-sm:h-[1200px]">
+    <div className=" home flex flex-col bg-profile-bg bg-cover bg-center drop-shadow-sm rounded-[10px] max-sm:rounded-none w-[80%] mx-auto max-w-[1400px] h-[70vh] max-sm:w-[100vw] max-md:w-[95%] max-md:h-[90vh] max-sm:h-[1200px]">
       <div className="flex text-white mt-14 mx-8 justify-between max-md:flex-col max-md:mt-8 max-sm:mt-14">
 
         <div className="flex flex-col">
@@ -22,7 +22,7 @@ const Profile = () => {
               <p className='max-sm:hidden'>Hey, Dude! how are you</p>
             </div>
           </div>
-          <div className="block mt-2">
+          <div className="block mt-3 ml-2 max-md:ml-auto">
             <motion.button type='button' whileTap={{scale: 0.955}} onClick={() => null} className='flex items-center bg-gray-800 py-2 px-6 mr-auto text-xs outline-none'> <MdEdit size={15} className='mr-1'/> Edit Profile</motion.button>
           </div>
         </div>
@@ -49,8 +49,8 @@ const Profile = () => {
 
       </div>
 
-      <div className="flex my-auto gap-4 flex-row-reverse mx-4">
-        <div className="flex flex-col w-[70%] flex-1">
+      <div className="flex my-auto gap-4 flex-row-reverse mx-4 max-md:flex-col max-md:w-full max-md:gap-2 max-md:my-18 overflow-x-auto">
+        <div className="flex flex-col w-[70%] flex-1 max-md:w-[95%]">
           <ResultsMatch />
           <Achievements />
         </div>

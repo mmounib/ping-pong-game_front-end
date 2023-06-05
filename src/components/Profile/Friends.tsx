@@ -14,6 +14,7 @@ const Friends = () => {
   return (
     <div className="flex flex-col top_1 w-[300px] text-gray-400 max-md:w-[95%]">
       <h1 className="text-2xl p-2">Friends List</h1>
+      
       <div className="flex flex-col">
 
         <div className="flex items-center justify-between">
@@ -39,7 +40,15 @@ const Friends = () => {
           </div>
 
         </div>
-        
+
+        {/* Friends List (Icons and Settings) */}
+
+        <div className="flex flex-col">
+            <div className="flex">
+                  
+            </div>      
+        </div>
+
       </div>
     </div>
   );

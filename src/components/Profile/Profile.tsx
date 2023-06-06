@@ -24,7 +24,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="block mt-3 ml-2 max-md:ml-auto">
-            <motion.button type='button' whileTap={{scale: 0.955}} onClick={() => null} className='flex items-center bg-gray-800 py-2 px-6 mr-auto text-xs outline-none'> <MdEdit size={15} className='mr-1'/> Edit Profile</motion.button>
+            <motion.button type='button' whileTap={{scale: 0.955}} onClick={() => null} className='flex items-center bg-fuchsia-900 py-2 px-6 mr-auto text-xs outline-none'> <MdEdit size={15} className='mr-1'/> Edit Profile</motion.button>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ import { Live, Results, TopPlayers } from './Container'
 const HomePage = () => {
   
   return (
-    <div className=" home flex flex-col bg-secondary-gradient rounded-[10px] max-sm:rounded-none w-[80%] mx-auto max-w-[1400px] h-[70vh] max-md:w-[95%] max-sm:w-full max-sm:bg-none max-sm:drop-shadow-none max-sm:h-screen">
+    <div className=" home flex flex-col bg-secondary-gradient rounded-[10px] max-sm:rounded-none w-[80%] mx-auto max-w-[1400px] h-[75vh] max-md:w-[95%] max-sm:w-full max-sm:bg-none max-sm:drop-shadow-none max-sm:h-screen">
       
       <div className=" rounded-t-[10px] h-[200px] contrast-75 saturate-75 bg-cover bg-no-repeat bg-center w-full bg-image-bg object-cover">
 

@@ -7,7 +7,10 @@
 // import Navbar from './components/Navbar/Navbar'
 // import HomePage from './components/HomePage/HomePage'
 
-import { Navbar, HomePage, Profile } from './components/index'
+import { Navbar, HomePage, Profile, SignIn } from './components/index'
+
+import axios from 'axios';
+import { AuthProvider } from './components/useContext';
 
 
 import './App.css'
@@ -15,15 +18,14 @@ import {
   RouterProvider,
   Route,
   Routes,
-  NavLink,
-  BrowserRouter
 } from "react-router-dom";
 
 const App = () => {
   return (
     <div className=' h-[1020px]'>
       <div className=' w-full flex absolute top-1/2 -translate-y-1/2 max-sm:top-0 max-sm:-translate-y-0'>
-        <Navbar />
+        <SignIn />
+        {/* <Navbar />
         <Routes>
           <Route path='/' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
@@ -31,7 +33,7 @@ const App = () => {
           <Route path='/Home' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
           <Route path='/Home' element={(<HomePage />)}/>
-        </Routes>
+        </Routes> */}
       </div>
     </div>
   )

@@ -85,6 +85,11 @@ h1 {
 
 }
 
+.sign-animation {
+  transform: translateY(-300%);
+  animation: slideDown 1.7s cubic-bezier(0.165, 0.84, 0.74, 1) forwards;
+}
+
 @keyframes slideDown {
   to {
     transform: translateY(0);

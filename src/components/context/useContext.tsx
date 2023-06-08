@@ -22,6 +22,8 @@ interface AuthContextType {
 
 export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
 
+    console.log("heeeeeeere");
+
     const [accessToken, setAccessToken] = useState<any | null>(null);
     const [refreshToken, setRefreshToken] = useState<any | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -53,6 +55,7 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
     
     const checkAuth = async () => {
         try {
+            console.log("here");
             const responseData = await axios.get("/auth/callback");
 
             const { tokens, userInfo } = responseData.data;
@@ -72,7 +75,6 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
             ////////// don't know if i need to regenerate the same process all over again or not  /////
 
         } catch (error) {
-            console.log(error);
         }
     };
 

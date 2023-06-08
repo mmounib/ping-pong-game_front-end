@@ -3,41 +3,57 @@
 import { Navbar, HomePage, Profile, SignIn } from './components/index'
 
 import axios from 'axios';
+
 import { AuthProvider, authContext } from './components/context/useContext';
 
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
+import React from 'react';
 
 import './App.css'
+
 import {
-  RouterProvider,
   Route,
   Routes,
 } from "react-router-dom";
 
-
-// export const ProtectedRoute = ( { children } ) => {
-//   const auth = authContext();
-
-//   // if (!auth.checkAuthentication())
+// interface ProtectedRoutesProps {
+//   path: string;
+//   element: any;
 // }
+
+export const ProtectedRoute: React.FC<{children: any}> = ( { children } ) => {
+  const auth = authContext();
+
+
+  return (
+    auth.isAuthenticated ? (
+      children
+    ) : (
+      <Navigate to="/" replace />
+    )
+  )
+}
 
 
 const App = () => {
+  const authApp = authContext();
 
   return (
     <div className=' h-[1020px]'>
       <div className=' w-full flex absolute top-1/2 -translate-y-1/2 max-sm:top-0 max-sm:-translate-y-0'>
-        <SignIn />
-        {/* <Navbar />
+
+        {/* <SignIn /> */}
+        {authApp.isAuthenticated && <Navbar />}
+        
         <Routes>
-          <Route path='/' element={(<HomePage />)}/>
-          <Route path='/Home' element={(<HomePage />)}/>
+          <Route path='/' element={(<SignIn />)}/>
+          <Route path='/Home' element={(<ProtectedRoute><HomePage /></ProtectedRoute>)}/>
           <Route path='/Profile' element={(<Profile />)}/>
-          <Route path='/Home' element={(<HomePage />)}/>
-          <Route path='/Home' element={(<HomePage />)}/>
-          <Route path='/Home' element={(<HomePage />)}/>
-        </Routes> */}
+          {/* <ProtectedRoute path='/Home' element={(<HomePage />)}/>
+          <ProtectedRoute path='/Home' element={(<HomePage />)}/>
+          <ProtectedRoute path='/Home' element={(<HomePage />)}/> */}
+        </Routes>
       </div>
     </div>
   )

@@ -1,16 +1,11 @@
 // import { useState, useEffect, useContext } from 'react'
 
-// import { VscAccount as AccountIcon, VscBell as NotifIcon, VscHome as HomeIcons, VscEllipsis as ListIcon, VscKebabVertical as DotsIcon,   } from "react-icons/vsc";
-
-// import { MdSource as MessageIcon, MdVideoLibrary as VideoIcon, MdMarkunread as MdMessageIcon, MdKeyboardDoubleArrowRight as rightArrowIcon, MdSportsEsports as GameIcon, MdOutlineToc as AdditionalSettingIcon } from "react-icons/md";
-
-// import Navbar from './components/Navbar/Navbar'
-// import HomePage from './components/HomePage/HomePage'
-
 import { Navbar, HomePage, Profile, SignIn } from './components/index'
 
 import axios from 'axios';
-import { AuthProvider, AuthContext } from './components/useContext';
+import { AuthProvider, authContext } from './components/context/useContext';
+
+import { useNavigate } from "react-router-dom";
 
 
 import './App.css'
@@ -21,7 +16,15 @@ import {
 } from "react-router-dom";
 
 
+// export const ProtectedRoute = ( { children } ) => {
+//   const auth = authContext();
+
+//   // if (!auth.checkAuthentication())
+// }
+
+
 const App = () => {
+
   return (
     <div className=' h-[1020px]'>
       <div className=' w-full flex absolute top-1/2 -translate-y-1/2 max-sm:top-0 max-sm:-translate-y-0'>

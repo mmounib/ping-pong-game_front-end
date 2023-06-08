@@ -1,49 +1,34 @@
+import React from "react";
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Cookies, useCookies } from "react-cookie";
 
 
-const AuthContext = createContext({});
+interface AuthContextType {
+    checkAuth: () => Promise<void>;
+    // logout: () => void;
+    isAuthenticated: boolean;
+  }
+  
+  const AuthContext = createContext<AuthContextType>({
+    checkAuth: () => Promise.resolve(),
+    // logout: () => {},
+    isAuthenticated: false,
+  });
 
-export const AuthProvider: any = ( {children}: any ) => {
+// const AuthContext = createContext({});
 
-    // const [authState, setAuthState] = useState(null);
+export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
 
-    // const [cookie, setCookie, removeCookie] = useCookies(["userTokens"]);
-
-    // useEffect(() => {
-    //     checkAuth();
-    // }, []);
-
-    // const checkAuth = async () => {
-        
-    //     try {
-            
-    //         const response = await axios.get('/auth/callback');
-    //         const data = response.data.token;
-
-    //         // {
-    //         //     access_token: aklsjdflkasjdf,
-    //         //     refresh_token: ;ljsfklajsdf,
-    //         //     user:{
-    //         //         userInfo...;
-    //         //     }
-    //         // }
-            
-    //         setCookie("userTokens", data, { path: '/', httpOnly: true});
-
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    const [accessToken, setAccessToken] = useState(null);
-    const [refreshToken, setRefreshToken] = useState(null);
+    const [accessToken, setAccessToken] = useState<any | null>(null);
+    const [refreshToken, setRefreshToken] = useState<any | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const [cookie, setCookie, removeCookie] = useCookies(["userToken"]);
+
+    const navigate = useNavigate();
 
 
     const refreshAccessToken = async () => {
@@ -127,7 +112,7 @@ export const AuthProvider: any = ( {children}: any ) => {
     )
 }
 
-export default AuthContext
+export const authContext = () => useContext(AuthContext);
 
 // check if the user has cookie--> 1 - true: extract the tokens and send them to the route /auth/intra.
                                     //2 false:send a request to the route /auth/callback, and wait for the response that contains the access_token and refresh_token.

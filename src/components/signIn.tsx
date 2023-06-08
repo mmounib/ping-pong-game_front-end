@@ -14,7 +14,7 @@ const SignIn = () => {
       <div className="sign-animation w-[550px] rounded-[10px] border-neutral-950 h-[350px] flex justify-center items-end shadow-md backdrop-blur-xl bg-transparent pb-8">
 
 
-        <motion.button type='button' whileHover={{scale: 1.05}} whileTap={{scale: 0.9}} className='flex items-center text-white bg-fuchsia-900 shadow-inner outline-none' onClick={}>
+        <motion.button type='button' whileHover={{scale: 1.05}} whileTap={{scale: 0.9}} className='flex items-center text-white bg-fuchsia-900 shadow-inner outline-none' onClick={() => null}>
 
             Sign In With <span className='pl-2 text-2xl'>42</span>
 

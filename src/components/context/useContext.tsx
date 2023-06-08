@@ -43,7 +43,27 @@ export const AuthProvider: any = ( {children}: any ) => {
     const [refreshToken, setRefreshToken] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const [cookie, setCookie, removeCookie] = useCookies(["userTokens"]);
+    const [cookie, setCookie, removeCookie] = useCookies(["userToken"]);
+
+
+    const refreshAccessToken = async () => {
+        try {
+            const response = await axios.get("/auth/refresh-token", {
+                headers: {
+                  Authorization: `Bearer ${refreshToken}`,
+            }, });
+
+            // const newAccessToken = response.data.access-token;
+            
+            // setAccessToken(newAccessToken);
+
+            // setCookie("userToken", AccessToken, { path: '/', httpOnly: true});
+
+        } catch (error) {
+            ///////// if the refresh token has expired... // we need to do something /////////////
+        }
+    };
+
 
     
     const checkAuth = async () => {
@@ -52,20 +72,56 @@ export const AuthProvider: any = ( {children}: any ) => {
 
             const { tokens, userInfo } = responseData.data;
             
-            setAccessToken(tokens);
-            setRefreshToken(tokens);
+            // Need To Set UserInfo ` avatar, name, wins, losses ... `
+
+            // setAccessToken(tokens.access-token);
+            // setRefreshToken(tokens.refresh-token);
             setIsAuthenticated(true);
+            
 
-            Cookies.
+            // setCookie("userTokens", tokens.access-token, { path: '/', httpOnly: true});
 
+            // setCookie("userToken", tokens.refresh-token, { path: '/', httpOnly: true});
+
+            
+            ////////// don't know if i need to regenerate the same process all over again or not  /////
 
         } catch (error) {
             console.log(error);
         }
     };
+
+    useEffect( () => {
+        const checkAuthentication = async () => {
+            try {
+                const accessToken = cookie.userToken;
+
+                if (!accessToken)
+                {
+                    // Need to redirect to sign in page
+                    setIsAuthenticated(false);
+                }
+
+                const headers = {
+                    Authorization: `Bearer ${accessToken}`,
+                };
+                const response = await axios.get("auth/intra", { headers });
+                
+                if (response.data.status === 200)
+                    setIsAuthenticated(true);
+                else if (response.data.status === 401) {
+                    refreshAccessToken();
+                }
+            } catch (error: any) {
+                // don't know what to do in here
+            }
+        }
+
+        checkAuthentication();
+    }, []);
     
     return (
-        <AuthContext.Provider value={{  }}>
+        <AuthContext.Provider value={{ checkAuth, isAuthenticated }}>
             {children}
         </AuthContext.Provider>
     )

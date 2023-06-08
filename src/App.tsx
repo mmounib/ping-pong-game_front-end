@@ -10,7 +10,7 @@
 import { Navbar, HomePage, Profile, SignIn } from './components/index'
 
 import axios from 'axios';
-import { AuthProvider } from './components/useContext';
+import { AuthProvider, AuthContext } from './components/useContext';
 
 
 import './App.css'
@@ -19,6 +19,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+
 
 const App = () => {
   return (

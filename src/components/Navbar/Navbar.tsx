@@ -5,6 +5,9 @@ import { VscAccount as AccountIcon, VscBell as NotifIcon, VscHome as HomeIcons, 
 
 import { MdSource as MessageIcon, MdVideoLibrary as VideoIcon, MdMarkunread as MdMessageIcon, MdKeyboardDoubleArrowRight as rightArrowIcon, MdSportsEsports as GameIcon, MdOutlineToc as AdditionalSettingIcon, MdExitToApp as ExitIcon } from "react-icons/md";
 
+
+import { authContext } from '../context/useContext';
+
 const links: any = [
   {
     name: "Home",
@@ -33,6 +36,8 @@ const Styles: string = "after:absolute after:content-[''] after:bg-white after:h
 
 
 const Navbar = () => {
+  const authNav = authContext();
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
@@ -96,7 +101,7 @@ const Navbar = () => {
             <div>
 
                 <span className=' flex bg-white h-[1px] mt-12'></span>
-                <NavLink to='/logout' className=' text-white flex mt-8 items-center justify-center hover:items-start'>
+                <NavLink to='/logout' className=' text-white flex mt-8 items-center justify-center hover:items-start cursor-pointer' onClick={authNav.logout} >
                   <ExitIcon size={35} />
                   <span className='pl-4'>Logout</span>
                 </NavLink>

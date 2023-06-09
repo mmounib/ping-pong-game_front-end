@@ -1,34 +1,32 @@
 import React from "react";
 import axios from "axios";
 import { createContext, useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { Cookies, useCookies } from "react-cookie";
 
 
 interface AuthContextType {
     checkAuth: () => Promise<void>;
-    // logout: () => void;
+    logout: () => void;
     isAuthenticated: boolean;
-  }
+}
   
-  const AuthContext = createContext<AuthContextType>({
+const AuthContext = createContext<AuthContextType>({
     checkAuth: () => Promise.resolve(),
-    // logout: () => {},
+    logout: () => {},
     isAuthenticated: false,
-  });
+});
 
 // const AuthContext = createContext({});
 
 export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
 
-    console.log("heeeeeeere");
-
     const [accessToken, setAccessToken] = useState<any | null>(null);
     const [refreshToken, setRefreshToken] = useState<any | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const [cookie, setCookie, removeCookie] = useCookies(["userToken"]);
+    const [cookie, setCookie, removeCookie] = useCookies(["accessTokenCookie", "refreshTokenCookie"]);
 
     const navigate = useNavigate();
 
@@ -44,7 +42,7 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
             
             // setAccessToken(newAccessToken);
 
-            // setCookie("userToken", AccessToken, { path: '/', httpOnly: true});
+            // setCookie("accessTokenCookie", AccessToken, { path: '/', httpOnly: true});
 
         } catch (error) {
             ///////// if the refresh token has expired... // we need to do something /////////////
@@ -67,9 +65,9 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
             setIsAuthenticated(true);
             
 
-            // setCookie("userTokens", tokens.access-token, { path: '/', httpOnly: true});
+            // setCookie("accessTokenCookie", tokens.access-token, { path: '/', httpOnly: true});
 
-            // setCookie("userToken", tokens.refresh-token, { path: '/', httpOnly: true});
+            // setCookie("refreshTokenCookie", tokens.refresh-token, { path: '/', httpOnly: true});
 
             
             ////////// don't know if i need to regenerate the same process all over again or not  /////
@@ -78,15 +76,39 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
         }
     };
 
+    const logout = async () => {
+
+        console.log("Logged Out");
+        
+        const jResponse = {
+            accessToken: accessToken,
+            refreshToken: refreshToken
+        };
+        
+        try {
+            const res = await axios.post("/logout", jResponse);
+
+            removeCookie('accessTokenCookie', { path: '/' });
+            removeCookie('refreshTokenCookie', { path: '/' });
+    
+            setIsAuthenticated(false);
+        } catch (error) {
+            
+        }
+    }
+
     useEffect( () => {
         const checkAuthentication = async () => {
             try {
-                const accessToken = cookie.userToken;
+                const accessToken = cookie.accessTokenCookie;
 
                 if (!accessToken)
                 {
                     // Need to redirect to sign in page
                     setIsAuthenticated(false);
+                    <Navigate to="/" replace />
+
+                    return ;
                 }
 
                 const headers = {
@@ -95,7 +117,10 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
                 const response = await axios.get("auth/intra", { headers });
                 
                 if (response.data.status === 200)
+                {
                     setIsAuthenticated(true);
+                    <Navigate to="/Home" replace />
+                }
                 else if (response.data.status === 401) {
                     refreshAccessToken();
                 }
@@ -108,7 +133,7 @@ export const AuthProvider: React.FC<{ children: any }> = ( { children } ) => {
     }, []);
     
     return (
-        <AuthContext.Provider value={{ checkAuth, isAuthenticated }}>
+        <AuthContext.Provider value={{ checkAuth, logout, isAuthenticated }}>
             {children}
         </AuthContext.Provider>
     )

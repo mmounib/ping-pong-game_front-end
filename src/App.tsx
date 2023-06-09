@@ -2,11 +2,9 @@
 
 import { Navbar, HomePage, Profile, SignIn } from './components/index'
 
-import axios from 'axios';
+import { authContext } from './components/context/useContext';
 
-import { AuthProvider, authContext } from './components/context/useContext';
-
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import React from 'react';
 
@@ -16,11 +14,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-
-// interface ProtectedRoutesProps {
-//   path: string;
-//   element: any;
-// }
 
 export const ProtectedRoute: React.FC<{children: any}> = ( { children } ) => {
   const auth = authContext();
@@ -48,11 +41,8 @@ const App = () => {
         
         <Routes>
           <Route path='/' element={(<SignIn />)}/>
-          <Route path='/Home' element={(<ProtectedRoute><HomePage /></ProtectedRoute>)}/>
-          <Route path='/Profile' element={(<Profile />)}/>
-          {/* <ProtectedRoute path='/Home' element={(<HomePage />)}/>
-          <ProtectedRoute path='/Home' element={(<HomePage />)}/>
-          <ProtectedRoute path='/Home' element={(<HomePage />)}/> */}
+          <Route path='/Home' element={(<ProtectedRoute> <HomePage /> </ProtectedRoute>)}/>
+          <Route path='/Profile' element={(<ProtectedRoute> <Profile /> </ProtectedRoute>)}/>
         </Routes>
       </div>
     </div>
